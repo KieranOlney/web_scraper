@@ -1,16 +1,29 @@
 import requests
-from bs4 import BeautifulSoup
+import re
 
-def get_webpage(url):
-    page = requests.get(url)
-    return page
+class decoder:
 
-def parse_webpage():
-    pass
+    def __init__(self):
+        self.message = {}
+        self.duplicates = 0
 
-def interpret_message():
-    pass
+    def get_webpage(self,url):
+        print(url)
+        page = requests.get(url)
+        html = page.text
+        return html
 
-def store_string():
-    pass
+    def parse_webpage(self,html):
+        match = re.findall(r"section:\s{1,}(\d{1,3})(?:\s[a-z]{1,}){1,5}:\s(\S)",html)
+        position = match[0][0]
+        character = match[0][1]
+        return position, character
 
+    def interpret_message(self):
+        pass
+
+    def store_message(self,position,character):
+        pass
+
+    def form_message(self,msg_dict):
+        pass
