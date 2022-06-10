@@ -1,12 +1,13 @@
 import requests
 import re
+import base64
+import codecs
 
 class decoder:
 
     def __init__(self):
         self.message = {}
         self.message_str = ""
-        self.decoded_message_str = ""
 
     def get_webpage(self,url):
         page = requests.get(url)
@@ -20,7 +21,9 @@ class decoder:
         return position, character
 
     def interpret_message(self):
-        pass
+        decoded_message = base64.b64decode(self.message_str)
+        print(decoded_message)
+
 
     def store_message(self,position,character):
         if position in self.message:

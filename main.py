@@ -1,6 +1,4 @@
-import requests
 from ws_functions import *
-from bs4 import BeautifulSoup
 
 def main():
     url = "http://176.34.70.86:8080/"
@@ -21,6 +19,7 @@ def main():
                 print(dc.message)
         if dc.form_message() == True:
             message_formed = True
+    dc.interpret_message()        
     print(dc.decoded_message_str)
 
 main()
