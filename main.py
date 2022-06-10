@@ -16,12 +16,12 @@ def main():
             if dupe == False:
                 dupe_num = dupe_num+1
                 print("dupes:",dupe_num)
-            if dupe_num > 20:
+            if dupe_num > 100:
                 dupe_limit = True
                 print(dc.message)
         if dc.form_message() == True:
             message_formed = True
-    print(dc.message_str)
+    print(dc.decoded_message_str)
 
 main()
 

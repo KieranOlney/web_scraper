@@ -6,6 +6,7 @@ class decoder:
     def __init__(self):
         self.message = {}
         self.message_str = ""
+        self.decoded_message_str = ""
 
     def get_webpage(self,url):
         page = requests.get(url)
@@ -22,8 +23,7 @@ class decoder:
         pass
 
     def store_message(self,position,character):
-        newchar = {position,character}
-        if character in self.message:
+        if position in self.message:
             return False
         else:
             self.message[position] = character
