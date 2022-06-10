@@ -5,10 +5,9 @@ class decoder:
 
     def __init__(self):
         self.message = {}
-        self.duplicates = 0
+        self.message_str = ""
 
     def get_webpage(self,url):
-        print(url)
         page = requests.get(url)
         html = page.text
         return html
@@ -23,7 +22,21 @@ class decoder:
         pass
 
     def store_message(self,position,character):
-        pass
+        newchar = {position,character}
+        if character in self.message:
+            return False
+        else:
+            self.message[position] = character
+            return True
 
-    def form_message(self,msg_dict):
-        pass
+    def form_message(self):
+        self.message_str = ""
+        i = 0
+        for char in self.message:
+            try:
+                self.message_str += self.message.get(str(i))
+                i = i+1
+            except TypeError:
+                print(i)
+                return False        
+        return True
