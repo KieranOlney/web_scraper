@@ -2,7 +2,6 @@ from ast import literal_eval
 import requests
 import re
 import base64
-import codecs
 
 class decoder:
 

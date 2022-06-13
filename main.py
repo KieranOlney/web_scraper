@@ -16,12 +16,10 @@ def main():
                 print("dupes:",dupe_num)
             if dupe_num > 100:
                 dupe_limit = True
-                print(dc.message)
+                print("Dupe Limit Reached")
         if dc.form_message() == True:
             message_formed = True
     dc.interpret_message()        
     print(dc.decoded_message)
 
 main()
-
-#b'SSBhbSBhbHdheXMgcmVhZHkgdG8gbGVhcm4sIGFsdGhvdWdoIGkgZG8gbm90IGFsd2F5cyBsaWtlIGJlaW5nIHRhdWdodA=='
