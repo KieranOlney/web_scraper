@@ -20,7 +20,8 @@ def main():
         if dc.form_message() == True:
             message_formed = True
     dc.interpret_message()        
-    print(dc.decoded_message_str)
+    print(dc.decoded_message)
 
 main()
 
+#b'SSBhbSBhbHdheXMgcmVhZHkgdG8gbGVhcm4sIGFsdGhvdWdoIGkgZG8gbm90IGFsd2F5cyBsaWtlIGJlaW5nIHRhdWdodA=='

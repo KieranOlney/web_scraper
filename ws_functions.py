@@ -1,3 +1,4 @@
+from ast import literal_eval
 import requests
 import re
 import base64
@@ -8,6 +9,7 @@ class decoder:
     def __init__(self):
         self.message = {}
         self.message_str = ""
+        self.decoded_message = None
 
     def get_webpage(self,url):
         page = requests.get(url)
@@ -21,9 +23,9 @@ class decoder:
         return position, character
 
     def interpret_message(self):
-        decoded_message = base64.b64decode(self.message_str)
-        print(decoded_message)
-
+        self.message_bytes = literal_eval(self.message_str)
+        decoded_message = base64.standard_b64decode(self.message_bytes)
+        self.decoded_message = decoded_message.decode()
 
     def store_message(self,position,character):
         if position in self.message:
